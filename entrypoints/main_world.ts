@@ -32,16 +32,16 @@ export default defineUnlistedScript(() => {
       //   // window.editor = editor;
       //   // window.graph = graph;
       //
-      //   const TOOL_get_selected_cell = "get-selected-cell";
-      //   on_standard_tool_request_from_server(
-      //     TOOL_get_selected_cell,
-      //     ui,
-      //     new Set([]),
-      //     (ui, _options) => {
-      //       const result = graph.getSelectionCell() || "no cell selected";
-      //       return result;
-      //     },
-      //   );
+      const TOOL_get_selected_cell = "get-selected-cell";
+      on_standard_tool_request_from_server(
+        TOOL_get_selected_cell,
+        window.ruleeng,
+        new Set([]),
+        (ruleeng, _options) => {
+          const result = ruleeng.ui.getSelectElements(true) || "no cell selected";
+          return result;
+        },
+      );
       //
       //   const TOOL_add_rectangle = "add-rectangle";
       //   on_standard_tool_request_from_server(

@@ -16,7 +16,7 @@ export type OnRequestFromServer = <RQ>(
 ) => void;
 export type OnStandardToolRequestFromServer = (
   event_name: string,
-  ui: DrawioUI,
+  ruleeng: any,
   accepted_option_keys: Set<OptionKey>,
   drawio_function: DrawIOFunction,
 ) => void;
@@ -24,7 +24,7 @@ export type OnStandardToolRequestFromServer = (
 export type DrawioCellOptions = Record<OptionKey, unknown>;
 
 export type DrawIOFunction = (
-  ui: DrawioUI,
+    ruleeng: any,
   options: DrawioCellOptions,
 ) => unknown;
 
