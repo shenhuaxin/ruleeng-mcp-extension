@@ -41,6 +41,6 @@ jobs:
         with:
           name: extension-zip
           path: |
-            .output/drawio-mcp-extension-${{ env.VERSION }}-chrome.zip
-            .output/drawio-mcp-extension-${{ env.VERSION }}-firefox.zip
-            .output/drawio-mcp-extension-${{ env.VERSION }}-sources.zip
+            .output/ruleeng-mcp-extension-${{ env.VERSION }}-chrome.zip
+            .output/ruleeng-mcp-extension-${{ env.VERSION }}-firefox.zip
+            .output/ruleeng-mcp-extension-${{ env.VERSION }}-sources.zip

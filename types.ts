@@ -63,5 +63,6 @@ declare global {
   interface Window {
     Draw?: Draw;
     mxUtils?: any;
+    ruleeng: any;
   }
 }

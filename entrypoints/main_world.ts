@@ -18,7 +18,8 @@ import { DrawioUI } from "../types";
 export default defineUnlistedScript(() => {
   console.log("Hello from the main world");
   const checkInterval = setInterval(() => {
-    if (window.Draw) {
+    if (window.ruleeng) {
+      window.ruleeng.addrule("测试")
       clearInterval(checkInterval);
       window.Draw.loadPlugin((ui: DrawioUI) => {
         console.log("plugin loaded", ui);

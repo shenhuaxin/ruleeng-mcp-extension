@@ -2,7 +2,7 @@ import { ExtensionConfig, getConfig } from './config';
 import { deduplicatePatterns } from './utils/urlPatternValidator';
 
 // Content script management
-const CONTENT_SCRIPT_ID = 'drawio-mcp-content';
+const CONTENT_SCRIPT_ID = 'ruleeng-mcp-content';
 
 // Content script registration type
 interface ContentScriptRegistration {

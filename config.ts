@@ -9,11 +9,11 @@ import { safeMigrateConfig } from './utils/configMigration';
 // Default configuration
 export const DEFAULT_CONFIG: ExtensionConfig = {
   websocketPort: 3333,
-  urlPatterns: ["*://app.diagrams.net/*"],
+  urlPatterns: ["<all_urls>"],
 };
 
 // Storage key
-export const CONFIG_STORAGE_KEY = 'drawio-mcp-config';
+export const CONFIG_STORAGE_KEY = 'ruleeng-mcp-config';
 
 // Configuration service functions
 
