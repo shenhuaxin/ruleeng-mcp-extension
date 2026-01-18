@@ -52,7 +52,8 @@ export const on_standard_tool_request_from_server: OnStandardToolRequestFromServ
           __event: reply_name(event_name, request.__request_id),
           __request_id: request.__request_id,
           success: true,
-          result: remove_circular_dependencies(result),
+          // result: remove_circular_dependencies(result),
+          result: result,
         };
       } catch (e) {
         console.error(
