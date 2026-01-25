@@ -71,9 +71,23 @@ export default defineUnlistedScript(() => {
                     return "删除节点成功";
                 },
             );
-            const TOOL_set_node_conf = "edit-node-conf";
+            const TOOL_set_paramsassign_node_conf = "edit-params-assign-node-conf";
             on_standard_tool_request_from_server(
-                TOOL_set_node_conf,
+                TOOL_set_paramsassign_node_conf,
+                window.ruleeng,
+                new Set(["nodeId", "conf"]),
+                (ruleeng, _options) => {
+                    const result = ruleeng.ui.getNodeModelById(_options.nodeId)
+                        .setProperties({
+                            conf: _options.conf,
+                        });
+                    console.log("edit-node-conf result: ", result)
+                    return "编辑节点成功";
+                },
+            );
+            const TOOL_set_switchto_node_conf = "edit-switchto-node-conf";
+            on_standard_tool_request_from_server(
+                TOOL_set_switchto_node_conf,
                 window.ruleeng,
                 new Set(["nodeId", "conf"]),
                 (ruleeng, _options) => {
@@ -113,13 +127,17 @@ export default defineUnlistedScript(() => {
                 },
             );
 
-            //   const TOOL_get_shape_categories = "get-shape-categories";
-            //   on_standard_tool_request_from_server(
-            //     TOOL_get_shape_categories,
-            //     ui,
-            //     new Set([]),
-            //     get_shape_categories,
-            //   );
+              const TOOL_get_nodes_categories = "get-nodes-categories";
+              on_standard_tool_request_from_server(
+                  TOOL_get_nodes_categories,
+                  window.ruleeng,
+                new Set([]),
+                  (ruleeng, _options) => {
+                      const result = ruleeng.assist.nodeslist();
+                      console.log("TOOL_get_nodes_categories: ", result)
+                      return result;
+                  },
+              );
             //
             //   const TOOL_get_shapes_in_category = "get-shapes-in-category";
             //   on_standard_tool_request_from_server(
@@ -169,6 +187,18 @@ export default defineUnlistedScript(() => {
                 (ruleeng, _options) => {
                     const result = ruleeng.ui.getGraphData()
                     console.log("get graph: ", result)
+                    return result;
+                },
+            );
+
+            const TOOL_get_flow_params = "get-flow-params";
+            on_standard_tool_request_from_server(
+                TOOL_get_flow_params,
+                window.ruleeng,
+                new Set([]),
+                (ruleeng, _options) => {
+                    const result = ruleeng.assist.getflowparams()
+                    console.log("flow params: ", result)
                     return result;
                 },
             );
