@@ -75,12 +75,10 @@ export default defineUnlistedScript(() => {
             on_standard_tool_request_from_server(
                 TOOL_set_paramsassign_node_conf,
                 window.ruleeng,
-                new Set(["nodeId", "conf"]),
+                new Set(["nodeId", "config"]),
                 (ruleeng, _options) => {
                     const result = ruleeng.ui.getNodeModelById(_options.nodeId)
-                        .setProperties({
-                            conf: _options.conf,
-                        });
+                        .setProperties(_options.config);
                     console.log("edit-node-conf result: ", result)
                     return "编辑节点成功";
                 },
@@ -89,12 +87,23 @@ export default defineUnlistedScript(() => {
             on_standard_tool_request_from_server(
                 TOOL_set_switchto_node_conf,
                 window.ruleeng,
-                new Set(["nodeId", "conf"]),
+                new Set(["nodeId", "config"]),
                 (ruleeng, _options) => {
                     const result = ruleeng.ui.getNodeModelById(_options.nodeId)
-                        .setProperties({
-                            conf: _options.conf,
-                        });
+                        .setProperties(_options.config);
+                    console.log("edit-node-conf result: ", result)
+                    return "编辑节点成功";
+                },
+            );
+
+            const TOOL_set_calculate_node_conf = "edit-calculate-node-conf";
+            on_standard_tool_request_from_server(
+                TOOL_set_calculate_node_conf,
+                window.ruleeng,
+                new Set(["nodeId", "config"]),
+                (ruleeng, _options) => {
+                    const result = ruleeng.ui.getNodeModelById(_options.nodeId)
+                        .setProperties(_options.config);
                     console.log("edit-node-conf result: ", result)
                     return "编辑节点成功";
                 },
