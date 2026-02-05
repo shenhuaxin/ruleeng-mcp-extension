@@ -39,6 +39,7 @@ export default defineUnlistedScript(() => {
                 new Set([]),
                 (ruleeng, _options) => {
                     const result = ruleeng.ui.getSelectElements(true) || "no cell selected";
+                    console.log("get-selected-cell: ", result)
                     return result;
                 },
             );
@@ -115,9 +116,20 @@ export default defineUnlistedScript(() => {
                 window.ruleeng,
                 new Set(["sourceNodeId", "targetNodeId"]),
                 (ruleeng, _options) => {
+                    const source = ruleeng.ui.getNodeModelById(_options.sourceNodeId).getDefaultAnchor()
+                    const target = ruleeng.ui.getNodeModelById(_options.targetNodeId).getDefaultAnchor()
+                    
                     const result = ruleeng.ui.addEdge({
                         sourceNodeId: _options.sourceNodeId,
                         targetNodeId: _options.targetNodeId,
+                        startPoint: {
+                            x: source.find((it: { type: string; }) => it.type == 'right').x,
+                            y: source.find((it: { type: string; }) => it.type == 'right').y,
+                        },
+                        endPoint: {
+                            x: target.find((it: { type: string; }) => it.type == 'left').x,
+                            y: target.find((it: { type: string; }) => it.type == 'left').y,
+                        }
                     });
                     console.log("addnode result: ", result)
                     return "添加节点连接边成功";
